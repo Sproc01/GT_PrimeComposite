@@ -1,1 +1,12 @@
 \section{Strategies} \label{section: Strategies}% Lorenzo
+We decided to test different strategies against each other to see if one of them outperformed the others. In particular, we implemented the following strategies:
+\begin{itemize}
+    \item random strategy: the player plays a random card from their hand;
+    \item max strategy: the player plays the card with the maximum number written on it;
+    \item min strategy: the player plays the card with the minimum number written on it;
+    \item prime\_first strategy: the player plays at first only prime numbers cards, if any, chosen at random, otherwise he plays composite numbers card;
+    \item composite\_first strategy: the player plays at first only composite numbers cards, if any, chosen at random, otherwise he plays prime numbers card;
+    \item max\_val strategy: the player plays the card that gives him the highest score; TODO
+    \item security strategy: the player plays the card that maximized his minimum score; TODO
+    \item minimax strategy: the player plays the card that minimizes his maximum score.
+\end{itemize}
