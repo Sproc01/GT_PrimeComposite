@@ -1,9 +1,96 @@
-\section{Simulation} \label{section:Simulation}% Michele
+\section{Simulation} \label{section:Simulation} %Michele
 To understand if the first player has some moving advantage, we had to run several simulations by comparing the different strategies explained in section \ref{section: Strategies} in the two cases that we want to compare:
 \begin{itemize}
     \item General case: the starting player is decided by the random cards that they got.
-    \item Player 1 always starting: we forced the fact that the player 1 has the card corresponding to number two.
+    \item Player 1 always starting: we forced the fact that the player 1 has the card corresponding to number two so he starts always the game.
 \end{itemize}
-In order to achieve this, firstly we generate the different possible configurations of cards by assigning each card uniformly at random between the two players. Then for each assignment, we run the game comparing every possible pair of strategies from the two players.
+In order to achieve this, firstly we generate the different possible configurations of cards by assigning each card uniformly at random between the two players. Then for each assignment, we run the game comparing every possible pair of strategies from the set explained in \ref{section: Strategies}.
 
 \subsection{Results} \label{subsection:Results}
+To have enough data to make statistical analyses but also to have limited computation time, we decided to do $10 000$ samples of possible assignments; then we simulate the different strategies.
+
+
+By looking at figure \ref{fig:comparison_pl1}, that plots the win of player 1 when the two players play the same strategy, we can see that there is some small advantage for some strategies (random, max, min, prime, comp, max\_val) versus a great worsening for two particular strategies (security, minimax).
+
+This is also reflected in the opposite plot, so the one for player 2 reported in figure \ref{fig:comparison_pl2}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{img/comparison_winning_starts_general_pl1.png}
+    \caption{Wins of player 1 in the two cases when the two players play the same strategy.}
+    \label{fig:comparison_pl1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{img/comparison_winning_not_starts_general_pl2.png}
+    \caption{Wins of player 2 in the two cases when the two players play the same strategy.}
+    \label{fig:comparison_pl2}
+\end{figure}
+
+After these, we have computed the probability that player 1 wins the game for every possible pair of strategies. The probability is computed as follows:
+
+\begin{equation} \label{eq:probability_cal}
+    prob = \frac{number-of-wins}{number-of-total-matches}
+\end{equation}
+
+To visualize the results in these two cases, we decided to use the heat-maps; the plots are reported in figure \ref{fig:prob_general} and in figure \ref{fig:prob_starts}. 
+
+From the plot in figure \ref{fig:prob_general} we can see that in the general case the probability of winning for player 1 is very high when these combinations arise:
+\begin{enumerate}
+    \item max\_val vs random
+    \item security vs random
+    \item minimax vs random
+    \item max\_val vs min
+    \item security vs min
+    \item minimax vs min
+    \item security vs prime first
+    \item minimax vs prime first
+\end{enumerate}
+The first 3 were somehow obvious because the second player is choosing the card randomly without a strategy, so a good strategy for player 1 will very likely beat player 2. The other five results instead are more interesting. 
+Since the probability of winning for player 2 is $1 - probability-winning-player-1$ we can see the dark part at the top right of the heat-map.
+
+By looking at figure \ref{fig:prob_starts} we can see what we have pointed out before using figure \ref{fig:comparison_pl1} and \ref{fig:comparison_pl2} that is the fact that we have a significant drop in the chance of winning for the strategies in the bottom right part of the heat-map, but we have an increasing probability for all the other combinations.
+
+To visualize in a better way this last observation we plot also the difference between the two sets of probabilities and we obtained the heat-map in \ref{fig:diff_prob}, using this plot we can see that we have a 5 \% increment in the top left but a 25 \% decrease in the bottom right. So given these values we can say that maybe the player that does not start has an advantage because in certain pairs of strategies the probability of the starting player increases by a small percentage but it decreases a lot for other strategies so the not-starting player has in general a greater chance to win.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{img/prob_winning_general.png}
+    \caption{Probability of winning for player 1 in general case (strategy of player 1 on the rows).}
+    \label{fig:prob_general}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{img/prob_winning_starts.png}
+    \caption{Probability of winning for player 1 in the case where he always starts (strategy of player 1 on the rows).}
+    \label{fig:prob_starts}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{img/diff_prob.png}
+    \caption{Difference between probability of winning for player 1 when it starts and the general case.}
+    \label{fig:diff_prob}
+\end{figure}
+
+For all possible simulations that we have run, we also collected the different scores of each match. These results are used in order to plot a box plot for each pair of strategies in the two cases that we have analyzed. These can be seen in figure \ref{fig:box_general} and figure \ref{fig:box_starts}.
+From the comparison between these plots, we can see again the bottom left part where we have a worsening of the scores of player 1 from general to the case where it starts confirming again what we have said before. 
+Also, we can see that, in general, we have very small boxes but very large whiskers; this means that we have a large variance of the scores but also that in the 2\textsuperscript{nd} and 3\textsuperscript{rd} quantiles we have data that is very concentrated. We can also see that there are a lot of outliers pretty much everywhere. In particular, we can see that when player 1 starts, the number of outliers increases a lot for both players.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{img/box_plot_general.png}
+    \caption{Plot that reports the box plots of the different score for each pair of strategies in the general case.}
+    \label{fig:box_general}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{img/box_plot_starts.png}
+    \caption{Plot that reports the box plots of the different score for each pair of strategies when player 1 starts.}
+    \label{fig:box_starts}
+\end{figure}
+
+At the end of the code, there is also a small part that uses an optimization method to find the binomial distribution that best fits the data in the two cases. The distributions found are very similar to the ones computed before using the equation \ref{eq:probability_cal}.
