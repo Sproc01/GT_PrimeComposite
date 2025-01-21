@@ -1,44 +1,10 @@
 \section{Introduction} \label{section:Introduction}% Riccardo
 
-\textbf{Talk about motivation. Introduce rules and then talk about modelling (?)}
+In this work, we want to apply game theoretic tools to the analysis of a real-life tabletop game, called Primi Composti.
 
-\subsection{Game's rules}
+Our objective is first of all to understand whether this specific game is unfair, in the sense that it favours one player over another independently of their "skill" level. Additionally, we also want to study the efficacy of approximated strategies for players, taking inspiration from fundamental concepts like security strategies but adapting them to a real-world scenario, where computational power is limited.
 
-In this work we focus on the 2 players scenario, where the rules of are as follows.
+However, before delving into the specifics of those topics, we want to first present the game rules and then introduce our approach to its modelling.
 
-There are 24 different cards whose value varies between 2 and 25, for a total of 9 primes and 15 composites in play.
-The 24 cards get distributed at random to the players, building 2 hands of 12 cards; the player that received the 2 gets to play first.
-
-The game is turn-based: at each turn a player has to play a card from its hand, receiving a certain amount of points that gets added to its score, and then pass the turn to its opponent, until they both run out of cards in the hand.
-
-Each of the players has two piles of cards in front of himself, one for cards of prime values and one for composites; after a card is played, it gets placed on the top of its player's primes or composites pile depending on its value.
-
-To conclude, Table \ref{tab:points} shows how the points are assigned to a certain play. At the end of the game, whoever obtained the highest score wins.
-
-It is easy to see that, under this formulation, ties can happen. However, we consider a tie as an invalid result that needs to be repeated, in order to simplify the analysis.
-
-\begin{table}
-	\centering
-	\begin{tabular}{c|c|c}
-		\multicolumn{3}{c}{Country List} \\
-		\textbf{Card Type} & \textbf{Points} & \textbf{Explanation} \\
-		\hline
-		\hline
-		\textbf{C} & 1  &  \\
-		\hline
-		\textbf{P}& 2 &  \\
-		\hline
-		\textbf{C = C \# C}& 3 &  \\
-		\hline
-		\textbf{C = P \# C}& 4 &  \\
-		\hline
-		\textbf{P = C \# C}& 4 &  \\
-		\hline
-		\textbf{P = P \# C}& 5 &  \\
-		\hline
-		\textbf{P = P \# P}& 6 &  \\
-		\hline
-	\end{tabular}
-	\label{tab:points}
-	\caption{\textbf{FINISH WRITING ON OVERLEAF}}
-\end{table}
+\input{sections/game_rules.tex}
+\input{sections/approach.tex}

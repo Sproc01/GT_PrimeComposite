@@ -1,0 +1,42 @@
+\subsection{Game's rules}
+
+In this work we focus on the 2 players scenario, where the rules are as follows.
+
+There are 24 different cards whose value vary between 2 and 25, for a total of 9 primes and 15 composites in play.
+The 24 cards get distributed at random to the players, building 2 hands of 12 cards; the player that received the 2 gets to play first.
+
+The game is turn-based: at each turn a player has to play a card from its hand, receiving a certain amount of points that gets added to its score, and then pass the turn to its opponent, until they both run out of cards in the hand.
+
+Each of the players has two piles of cards in front of himself, one for cards of prime values and one for composites; when a card is played, it gets placed on the top of its player's primes or composites pile depending on its value.
+
+To conclude, Table \ref{tab:points} shows how the points are assigned to a certain play. At the end of the game, whoever obtained the highest score wins.
+
+It is easy to see that, under this formulation, ties can happen. However, we consider a tie as an invalid result that needs to be repeated, in order to simplify the analysis.
+
+
+\begin{table}[!ht]
+	\setlength\extrarowheight{2pt} % for a bit of visual "breathing space"
+	\begin{tabularx}{\linewidth}{|c|c|C|}
+		\hline
+		\textbf{Column 1} & \textbf{Column 2} & \textbf{Column 3}  \\
+		\hline
+		
+		\hline
+		\textbf{C} & 1  &  Whoever plays a composite card, whose value is not the result of any operation among the visible cards on the table, gets 1 point. \\
+		\hline
+		\textbf{P}& 2 &  Whoever plays a prime card, whose value is not the result of any operation among the visible cards on the table, gets 2 points. \\
+		\hline
+		\textbf{C = C \# C}& 3 &  Whoever plays a composite card, whose value can be seen the result of an operation between two composite cards visible on the table, gets 3 points. \\
+		\hline
+		\textbf{C = P \# C}& 4 & Whoever plays a composite card, whose value can be seen the result of an operation between a composite card and a prime card, both visible on the table, gets 4 points. \\
+		\hline
+		\textbf{P = C \# C}& 4 &  Whoever plays a prime card, whose value can be seen the result of an operation between two composite cards visible on the table, gets 4 points. \\
+		\hline
+		\textbf{P = P \# C}& 5 & Whoever plays a prime card, whose value can be seen the result of an operation between a composite card and a prime card, both visible on the table, gets 5 points \\
+		\hline
+		\textbf{P = P \# P}& 6 & Whoever plays a composite card, whose value can be seen the result of an operation between two prime cards visible on the table, gets 6 points. \\
+		\hline
+	\end{tabularx}
+	\label{tab:points}
+	\caption{Rules for assigning points to a player after it plays one of its cards. Symbol $\#$ indicates an arithmetic operation, while P stands for prime and C for composite.}
+\end{table}

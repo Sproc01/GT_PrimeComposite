@@ -1,0 +1,16 @@
+\subsection{Modelling approach}
+
+It is easy too see that this game can essentially be modelled as a finite multi-stage Stackelberg game, where at each stage the hands of the players and the cards visible on the table depend on the outcomes of the previous stages.
+
+In particular, it is interesting to notice how this game is of complete imperfect information, since the content of the other player's hand is deterministic given one's hand, that is a Nature's choice. 
+However it is worth observing how, after Nature's choice, the game becomes of complete perfect information.
+This is interesting because, after observing the Nature's choice, each player can theoretically "solve" the game by always playing a best response through backward induction on the resulting decision tree.
+
+However, the backward induction approach, i.e. a strategy choice that would lead to a SPE, is infeasible to implement in practice, given that the resulting decision tree would have $2^24 - 1$ nodes and a total of $24!$ possible different sequences of plays (number of leaves).
+This major practical limitation hinders a rigorous analysis of the game, limiting us to only consider sub-optimal strategies due to the computational infeasibility of computing strategies that would yield subgame-perfect Nash equilibria.
+
+Additionally, another major problem in analysing this game arises when considering the randomness of the hands: Nature has a total of $\Comb{24}{12}$ possible choices, meaning that the number of games to consider would be well beyond practical feasibility.
+However this problem is easily solvable, since Nature's choice involves randomness, by using an high enough number of trials we can obtain results that are good in approximation.
+
+Another interesting aspect of this game is that it can be modelled also as a zero-sum game: it is straightforward to prove that if we do not only add the points of a play to the score of the relative player, but also subtract them from the score of its opponent, the final result, i.e. winning or losing the tabletop game, remains the same.
+This aspect is particularly interesting when we consider the possible strategies for our players, something that we will delve into in Section \ref{section: Strategies}.
