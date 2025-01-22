@@ -1,12 +1,23 @@
 \section{Strategies} \label{section: Strategies}% Lorenzo
-We decided to test different strategies against each other to see if one of them outperformed the others. In particular, we implemented the following strategies:
+As already mentioned, finding strategies to obtain SPE equilibria is a computationally expensive task that is not feasible for our game.
+However, we still want to test the evolution of the game under reasonable strategies, in order to see the distribution of wins and check whether any of them outperform the others.
+
+In particular, we implemented the following strategies:
 \begin{itemize}
     \item random strategy: the player plays a random card from their hand;
     \item max strategy: the player plays the card with the maximum number written on it;
     \item min strategy: the player plays the card with the minimum number written on it;
-    \item prime\_first strategy: the player plays at first only prime numbers cards, if any, chosen at random, otherwise he plays composite numbers card;
-    \item composite\_first strategy: the player plays at first only composite numbers cards, if any, chosen at random, otherwise he plays prime numbers card;
-    \item max\_val strategy: the player plays the card that gives him the highest score; TODO
-    \item security strategy: the player plays the card that maximized his minimum score; TODO
-    \item minimax strategy: the player plays the card that minimizes his maximum score.
+    \item prime\_first strategy: the player plays at first only prime numbers cards, if any, chosen at random, otherwise he plays composite numbers card, again chosen in random order;
+    \item composite\_first strategy: the player plays at first only composite numbers cards, if any, chosen at random, otherwise he plays prime numbers card, again chosen in random order;
+    \item max\_val strategy: play the card that gives the highest amount of points, given the current set of visible cards on the table;
 \end{itemize}
+
+Additionally, as mentioned before, we can leverage the zero-sum characteristics of the game and take inspiration from the concepts of security strategies and minimax to define our own approximated versions.
+The idea is essentially to see each turn and the following one as a static stage-like game; factoring in the zero-sum modelling of the game, this allows the player to choose at each turn a card to play as it would be dictated by the maximin and minimax paradigm in pure strategies. It is needless to say that this is a huge simplification: we are just considering the current turn and the opponent response as a static game, even though it is actually a Stackelberg relation and just a small component of the whole picture of the game.
+Given this idea, we define the two following strategies:
+\begin{itemize}
+	\item security strategy: compute the utility matrix of all possible outcomes of the current turn and the next one as a static game (as described above), then choose the card that maximises the minimum amount of points achievable, i.e. the payoff in the worst case of opponent's play.
+	\item minimax strategy: compute the utility matrix of all possible outcomes of the current turn and the next one as a static game, then choose the card that minimizes the maximum amount of points achievable, i.e. the minimum amount of points achievable by the player if it could perfectly predict its opponent's move. 
+\end{itemize}
+
+Building on this idea, one may be able to obtain better results by applying instead "best-response"-like strategies using backward induction on the small stage-like Stackelberg modelling of the current turn and the next one, however they would incur again in the practical infeasibility of simulating a significant number of games using such a strategy. Additionally, one may also be able to generalize those two strategies to the general case of more players by also building a belief system and keep the computational costs contained; however, this idea is not explored further since it goes out of the focus of our analysis, but it may prove interesting as future work.
