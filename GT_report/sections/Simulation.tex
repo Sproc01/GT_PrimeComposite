@@ -6,7 +6,7 @@ In order to understand if there is an inherit advantage into going first or seco
     \item General case: whoever starts between P1 and P2 is decided by which player has the card 2 in its hand.
     \item P1 always starts: player P1 always gets the hand containing the 2, thus playing first.
 \end{itemize}
-To achieve our objective, we first generate $n$ pairs of random hands, one for each player. Then for each pair of hands, we simulate the game on every possible combination of two strategies from Section \ref{section: Strategies}.
+To achieve our objective, we first generate $n$ pairs of random hands, one for each player. Then for each pair of hands, we simulate the game on every possible combination of two strategies from Section \ref{section: Strategies}. The simulation is run by supposing that each player sticks to his strategy for all possible situations that is a bit unrealistic because human players can change and adapt based on the opponent's moves, but for the sake of simplicity for the simulation, we made this assumption.
 
 \subsection{Results} \label{subsection:Results}
 To have enough data to make statistical analyses but also to have limited computation time, we decided to do $n = 10000$ samples of possible assignments; then we simulate the different strategies.
@@ -37,7 +37,7 @@ After these, we have computed the probability that player 1 wins the game for ev
 
 To visualize the results in these two cases, we decided to use the heat-maps; the plots are reported in figure \ref{fig:prob_general} and in figure \ref{fig:prob_starts}. 
 
-From the plot in figure \ref{fig:prob_general} we can see that in the general case the probability of winning for player 1 is very high when these combinations arise:
+From the plot in figure \ref{fig:prob_general} we can see that in the general case the probability of winning for player 1 and player 2 for the top-right is close to 50/50; but the chances that player 1 wins are very high when these combinations arise:
 \begin{enumerate}
     \item max\_val vs random
     \item security vs random

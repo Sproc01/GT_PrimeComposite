@@ -6,7 +6,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
-
+\usepackage[hidelinks]{hyperref}
 \newcommand*{\Comb}[2]{{}_{#1}C_{#2}}%
 
 \usepackage{tabularx,ragged2e}
@@ -43,23 +43,26 @@ riccardo.zuech@studenti.unipd.it}
 \maketitle
 
 \begin{abstract}
-	This project has the objective of providing a game theoretic analysis of a real-world scenario, that is the tabletop game Primi Composti. In particular, we are interested into checking whether there is an inherent advantage into going first or second by considering all combinations of different practical strategies from a set we define.
-	This project tackles some of the challenges that arise when applying game theoretic tools to real-world practical scenarios, like dealing with the random assignments of cards to the players and the high computational costs of standard best-response strategies.
-	% This project aims at finding if the two players can have advantages by starting or by being the second player in the game of Primes Compounds. To test if this is true or not, we defined some well-known strategies, and we simulated the game for different assignments of initial cards for the different pairs of strategies that the two players can play. Then we have done some analysis on the results to see if there are some advantages, and in case this is true, understand also for which player or for which pair of strategies.
+	This project has the objective of providing a game theoretic analysis of a real-world scenario, that is the tabletop game Primi Composti. In particular, we are interested in checking whether there is an inherent advantage in going first or second by considering all combinations of different practical strategies from a set we define.
+	This project tackles some of the challenges that arise when applying game theoretic tools to real-world practical scenarios, like dealing with the random assignments of cards to the players and the high computational costs of standard best-response strategies. So in order to deal with these aspects we have tried to find a balance over the number of games and the number of strategies in order to have statistical significance and also to not have too much computational time required to run all the computations.
 \end{abstract}
-
-%\begin{IEEEkeywords}
-%\end{IEEEkeywords}
 
 \input{sections/Introduction}
 \input{sections/Strategies}
 \input{sections/Simulation}
 \input{sections/Conclusions}
 
-\section*{Acknowledgment}
+\section*{Link}
+The code is available at \href{https://github.com/Sproc01/GT_PrimeComposite.git}{\textit{Repository}}
 
+\section*{Acknowledgment}
+Luciano Murrone that presented to us this game.
 
 \section*{References}
+\begin{itemize}
+    \item L. Badia, T. Marchioro, Game theory - A handbook of problems and exercises, Esculapio, 2022
+    \item S. Tadelis, Game Theory: an introduction. Princeton, 2013.
+\end{itemize}
 
 
 \end{document}
