@@ -1,14 +1,15 @@
 \section{Simulation} \label{section:Simulation} %Michele
-To understand if the first player has some moving advantage, we had to run several simulations by comparing the different strategies explained in section \ref{section: Strategies} in the two cases that we want to compare:
+In this section, we are going to refer to player 1 as P1 and player 2 as P2 for simplicity.
+
+In order to understand if there is an inherit advantage into going first or second, we run several simulations and compare the outcomes of the games under all the combinations of two strategies from the ones explained in section \ref{section: Strategies}. Then, we consider two cases:
 \begin{itemize}
-    \item General case: the starting player is decided by the random cards that they got.
-    \item Player 1 always starting: we forced the fact that the player 1 has the card corresponding to number two so he starts always the game.
+    \item General case: whoever starts between P1 and P2 is decided by which player has the card 2 in its hand.
+    \item P1 always starts: player P1 always gets the hand containing the 2, thus playing first.
 \end{itemize}
-In order to achieve this, firstly we generate the different possible configurations of cards by assigning each card uniformly at random between the two players. Then for each assignment, we run the game comparing every possible pair of strategies from the set explained in \ref{section: Strategies}.
+To achieve our objective, we first generate $n$ pairs of random hands, one for each player. Then for each pair of hands, we simulate the game on every possible combination of two strategies from Section \ref{section: Strategies}.
 
 \subsection{Results} \label{subsection:Results}
-To have enough data to make statistical analyses but also to have limited computation time, we decided to do $10 000$ samples of possible assignments; then we simulate the different strategies.
-
+To have enough data to make statistical analyses but also to have limited computation time, we decided to do $n = 10000$ samples of possible assignments; then we simulate the different strategies.
 
 By looking at figure \ref{fig:comparison_pl1}, that plots the win of player 1 when the two players play the same strategy, we can see that there is some small advantage for some strategies (random, max, min, prime, comp, max\_val) versus a great worsening for two particular strategies (security, minimax).
 
