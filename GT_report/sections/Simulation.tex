@@ -3,10 +3,10 @@ In this section, we are going to refer to player 1 as P1 and player 2 as P2 for 
 
 In order to understand if there is an inherit advantage into going first or second, we run several simulations and compare the outcomes of the games under all the combinations of two strategies from the ones explained in section \ref{section: Strategies}. Then, we consider two cases:
 \begin{itemize}
-    \item General case: whoever starts between P1 and P2 is decided by which player has the card 2 in its hand.
+    \item General case: whoever starts between P1 and P2 is decided by which player gets the card 2 in its hand.
     \item P1 always starts: player P1 always gets the hand containing the 2, thus playing first.
 \end{itemize}
-To achieve our objective, we first generate $n$ pairs of random hands, one for each player. Then for each pair of hands, we simulate the game on every possible combination of two strategies from Section \ref{section: Strategies}. The simulation is run by supposing that each player sticks to his strategy for all possible situations that is a bit unrealistic because human players can change and adapt based on the opponent's moves, but for the sake of simplicity for the simulation, we made this assumption.
+To achieve our objective, we first generate $n$ pairs of random hands, one for each player. Then for each pair of hands, we simulate the game on every possible combination of two strategies from Section \ref{section: Strategies}. \textbf{The simulation is run by supposing that each player sticks to his strategy for all possible situations; this assumption is a bit unrealistic on human players, since they can change and adapt based on the opponent's moves, but for the sake of simplicity for the simulation, we made this assumption.}
 
 \subsection{Results} \label{subsection:Results}
 To have enough data to make statistical analyses but also to have limited computation time, we decided to do $n = 10000$ samples of possible assignments; then we simulate the different strategies.
@@ -59,7 +59,7 @@ To visualize in a better way this last observation we plot also the difference b
     \centering
     \includegraphics[width=1\linewidth]{img/prob_winning_general.png}
     \caption{Probability of winning for player 1 in general case (strategy of player 1 on the rows).}
-    \label{fig:prob_general}
+    \label{fig:prob_generalcase}
 \end{figure}
 
 \begin{figure}
