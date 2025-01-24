@@ -1,7 +1,7 @@
 \subsection{Scores analysis} \label{subsection:scores}
 
 In our simulations, we have not only considered the outcomes of the simulated games but also the scores achieved by the players.
-We then used these results in order to build box plots for each pair of strategies in the two cases that we have analysed, which can be seen in Figure \ref{fig:box_general} and \ref{fig:box_starts}. In all these plots, the first box shows the scores distribution for P1, while the second one of P2.
+We then used these results in order to build box plots for each pair of strategies in the two cases that we have analysed, which can be seen in Figure \ref{fig:box_general} and \ref{fig:box_starts}. In all these plots, the first box shows the scores distribution for P1, while the second one for P2.
 
 \begin{figure}
 	\centering
@@ -17,7 +17,7 @@ We then used these results in order to build box plots for each pair of strategi
 	\label{fig:box_starts}
 \end{figure}
 
-In order to better visualize the distribution of the box plots, we restricted the strategies to random, max\_val, security and minimax, since they are the most significant. The results can be seen in Figures \ref{fig:box_general_rel} and \ref{fig:box_starts_rel}.
+In order to better visualize the distributions, we restricted the strategies to random, max\_val, security and minimax, since they are the most significant; the results can be seen in Figures \ref{fig:box_general_rel} and \ref{fig:box_starts_rel}.
 
 \begin{figure}
 	\centering
@@ -33,6 +33,10 @@ In order to better visualize the distribution of the box plots, we restricted th
 	\label{fig:box_starts_rel}
 \end{figure}
 
-From the comparison between those restricted plots, we can see again reflected many of the results discussed in Section \ref{subsection: Outcomes}.
-We can see again the bottom left part where we have a worsening of the scores of player 1 from general to the case where it starts confirming again what we have said before. 
-Also, we can see that, in general, we have very small boxes but very large whiskers; this means that we have a large variance of the scores but also that in the 2\textsuperscript{nd} and 3\textsuperscript{rd} quantiles we have data that is very concentrated. We can also see that there are a lot of outliers pretty much everywhere. In particular, we can see that when player 1 starts, the number of outliers increases a lot for both players.
+From the comparison between those restricted plots, we can see reflected many of the results discussed in Section \ref{subsection: Outcomes}.
+In particular, we can see again a worsening of the scores of P1 from the general case to the one where P1 always starts under security and minimax strategies, confirming again what we have said before.
+Also, we can see that, in general, we have very small boxes but very large whiskers; this means that we have a large variance of the scores but also that in the 2\textsuperscript{nd} and 3\textsuperscript{rd} quantiles we have data that is very concentrated.
+
+Another interesting aspect is the presence of many outliers pretty much everywhere. In particular, we can see that when player 1 starts, the number of outliers increases a lot for both players.
+
+Additionally, we can see as a general trend that our practical security and minimax strategies tend to have much less outliers than the other strategies; this is an interesting results, that highlights the consistency of such strategies and, factoring in their good performances, allows us to underline their strength, even though based on significant simplification from their standard game theoretic equivalents.

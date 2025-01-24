@@ -30,7 +30,7 @@ In this section we cover the analysis of the game outcomes (win, lose, tie), bot
  	\item The situation is more or less balanced when playing the max\_value strategy;
  	\item There is a significant advantage in going second when both players play a either the security or minimax strategy;
  \end{itemize}
- A combined observation of the first and second point is quite interesting: it seems that there is an advantage in going first when using stupid primitive strategies, but for more advanced ones the situation is flipped. An accurate analysis of this behaviour is quite difficult, given in particular the random nature of some of the strategies, however we propose an intuition to motivate it: a player using more advanced strategies and going second takes more opportunities to strategically form arithmetical operations with the cards visible on the table, considering also the potential opponent response, and thus achieve a greater number of points right from the first turns. This intuition is also supported by the more or less balanced behaviour of the max\_val pair, where each player tries to get the maximum partial payoff out of the current game state but without strategically looking ahead on the consequences of its action.
+ A combined observation of these points is quite interesting: it seems that there is an advantage in going first when using stupid primitive strategies, but for more advanced ones the situation is flipped. An accurate analysis of this behaviour is quite difficult, given in particular the random nature of some of the strategies, however we propose an intuition to motivate it: a player using more advanced strategies and going second takes more opportunities to strategically form arithmetical operations with the cards visible on the table, considering also the potential opponent response, and thus achieve a greater number of points right from the first turns. This intuition is also supported by the more or less balanced behaviour of the max\_val pair, where each player tries to get the maximum partial payoff out of the current game state but without strategically looking ahead on the consequences of its action.
 
 \begin{figure}
 	\centering
@@ -46,7 +46,7 @@ In this section we cover the analysis of the game outcomes (win, lose, tie), bot
 	\label{fig:outcomes_distribution_p1first}
 \end{figure}
 
-Figures \ref{fig:outcomes_distribution_general} and \ref{fig:outcomes_distribution_p1first} strength those observations and expand on them, by allowing to see the distribution of wins for each player under all possible strategies combinations, in the general and P1-first cases respectively.
+Figures \ref{fig:outcomes_distribution_general} and \ref{fig:outcomes_distribution_p1first} strengthen those observations and expand on them, by allowing to see the distribution of wins for each player under all possible strategies combinations, in the general and P1-first cases respectively.
 In particular, it is easy to see that there is an evident advantage in using zero-sum-like strategies in both cases. This was expected, since those two practical strategies are the ones that approximate more closely actual best-response strategies.
 Additionally, we can see again the advantage in always going second when playing such strategies.
 
